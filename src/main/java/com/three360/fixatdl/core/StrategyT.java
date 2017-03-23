@@ -8,9 +8,9 @@
 
 package com.three360.fixatdl.core;
 
-import com.three360.fixatdl.validation.StrategyEditT;
 import com.three360.fixatdl.layout.StrategyLayoutT;
 import com.three360.fixatdl.validation.EditT;
+import com.three360.fixatdl.validation.StrategyEditT;
 
 import javax.xml.bind.annotation.*;
 import java.math.BigInteger;

@@ -62,7 +62,7 @@ public class FxUiElementFactory implements UiElementAbstractFactory {
     }
 
     @Override
-    public IFixSpinnerUiElement createSpinner() {
+    public IFixSingleSpinnerUiElement createSpinner() {
         return null;
     }
 

@@ -29,7 +29,6 @@ public class FixAtdlGeneratorManualTestApp extends Application {
     private Text selectedFilePath;
     private IFixAtdlUi<Pane> paneIFixAtdlUi = new FxFixAtdlUi();
 
-
     private BorderPane borderPane;
 
     {

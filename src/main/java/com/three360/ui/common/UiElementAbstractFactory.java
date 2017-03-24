@@ -27,7 +27,7 @@ public interface UiElementAbstractFactory {
 
     IFixSliderUiElement createSlider();
 
-    IFixSpinnerUiElement createSpinner();
+    IFixSingleSpinnerUiElement createSpinner();
 
     IFixTextFieldUiElement createText();
 

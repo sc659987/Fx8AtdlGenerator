@@ -11,6 +11,10 @@ public interface IFixUiElement<T,K> {
      */
     T create();
 
+    /***
+     *
+     * @param e
+     */
     void registerForEvent(K e);
 
 

@@ -1,7 +1,14 @@
 package com.three360.ui.common.element;
 
-/**
- * Created by sainik on 3/23/17.
- */
-public interface IFixTextFieldUiElement {
+import com.three360.fixatdl.layout.TextFieldT;
+
+
+public interface IFixTextFieldUiElement<T, K> extends IFixUiElement<T, K> {
+
+    /***
+     *
+     * @param textField
+     */
+    void setTextField(TextFieldT textField);
+
 }

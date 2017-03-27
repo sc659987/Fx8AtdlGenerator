@@ -5,30 +5,30 @@ import com.three360.ui.common.element.*;
 
 public interface UiElementAbstractFactory {
 
-    IFixButtonUiElement createButton();
+    IFixButtonUiElement instantiateNewButton();
 
-    IFixCheckBoxListUiElement createCheckBox();
+    IFixCheckBoxListUiElement instantiateNewCheckBox();
 
-    <T, K> IFixDropDownListUiElement<T, K> createDropDownList();
+    <T, K> IFixDropDownListUiElement<T, K> instantiateNewDropDownList();
 
-    IFixHiddenFieldUiElement createHiddenField();
+    IFixHiddenFieldUiElement instantiateNewHiddenField();
 
-    IFixClockUiElement createJideClock();
+    IFixClockUiElement instantiateNewJideClock();
 
-    IFixLabelUiElement createLabel();
+    IFixLabelUiElement instantiateNewLabel();
 
-    IFixListBoxUiElement createListBox();
+    IFixListBoxUiElement instantiateNewListBox();
 
-    IFixNullableSpinnerUiElement createNullableSpinner();
+    IFixNullableSpinnerUiElement instantiateNewNullableSpinner();
 
-    IFixPanelUiElement createPanel();
+    IFixPanelUiElement instantiateNewPanel();
 
-    IFixRadioButtonUiElement createRadioButton();
+    IFixRadioButtonUiElement instantiateNewRadioButton();
 
-    IFixSliderUiElement createSlider();
+    IFixSliderUiElement instantiateNewSlider();
 
-    IFixSingleSpinnerUiElement createSpinner();
+    IFixSingleSpinnerUiElement instantiateNewSingleSpinner();
 
-    IFixTextFieldUiElement createText();
+    IFixTextFieldUiElement instantiateNewText();
 
 }

@@ -18,5 +18,4 @@ public interface IFixUiElement<T,K> {
     void registerForEvent(K e);
 
 
-
 }

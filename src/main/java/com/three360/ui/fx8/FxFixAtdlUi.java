@@ -62,7 +62,7 @@ public class FxFixAtdlUi extends AbstractFixAtdlUi<Pane> {
         strategySelectionBox.setAlignment(Pos.CENTER);
 
         if (getStrategies() != null) {
-            IFixDropDownListUiElement<ComboBox<String>, EventHandler<ActionEvent>> element = this.factory.createDropDownList();
+            IFixDropDownListUiElement<ComboBox<String>, EventHandler<ActionEvent>> element = this.factory.instantiateNewDropDownList();
             List<ListItemT> listItemTS = getStrategies().getStrategy().stream().map(StrategyT::getName).map(s -> {
                 ListItemT listItemT = new ListItemT();
                 listItemT.setUiRep(s);

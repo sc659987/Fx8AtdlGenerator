@@ -1,7 +1,13 @@
 package com.three360.ui.common.element;
 
-/**
- * Created by sainik on 3/23/17.
- */
-public interface IFixClockUiElement {
+import com.three360.fixatdl.layout.ClockT;
+
+public interface IFixClockUiElement<T, K> extends IFixUiElement<T, K> {
+
+    /***
+     *
+     * @param clockT
+     */
+    void setClockT(ClockT clockT);
+
 }

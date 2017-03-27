@@ -1,8 +1,11 @@
 package com.three360.ui.fx8.element;
 
+import com.three360.fixatdl.layout.CheckBoxListT;
+import com.three360.fixatdl.layout.ControlT;
 import com.three360.fixatdl.layout.PanelOrientationT;
 import com.three360.fixatdl.layout.StrategyPanelT;
 import com.three360.ui.common.UiElementAbstractFactory;
+import com.three360.ui.common.element.IFixCheckBoxListUiElement;
 import com.three360.ui.common.element.IFixPanelUiElement;
 import com.three360.ui.fx8.component.DaggerMyComponent;
 import javafx.event.ActionEvent;
@@ -16,7 +19,6 @@ import javafx.scene.layout.VBox;
 import javax.inject.Inject;
 import java.util.stream.Collectors;
 
-// TODO make all attribute private
 public class FxFixPanelUiElement implements IFixPanelUiElement<Node, EventHandler<ActionEvent>> {
 
     private StrategyPanelT strategyPanelT;
@@ -41,7 +43,7 @@ public class FxFixPanelUiElement implements IFixPanelUiElement<Node, EventHandle
             //Container for either groups of parameters or strategyPanels, but not both.
             //I.e., a StrategyPanel will contain either all Control elements or all
             //StrategyPanel elements.
-            if (this.strategyPanelT.getStrategyPanel() != null) {
+            if (this.strategyPanelT.getStrategyPanel() != null && this.strategyPanelT.getStrategyPanel().size() > 0) {
                 parent.getChildren().addAll(this.strategyPanelT
                         .getStrategyPanel()
                         .stream()
@@ -52,17 +54,25 @@ public class FxFixPanelUiElement implements IFixPanelUiElement<Node, EventHandle
                         }).collect(Collectors.toList()));
             } else if (this.strategyPanelT.getControl() != null) {
                 // actually implement adding control
-//                this.strategyPanelT
-//                        .getControl()
-//                        .stream()
-//                        .map(controlT -> {
-//
-//                        }).collect(Collectors.toList());
+                parent.getChildren().setAll(
+                        this.strategyPanelT.getControl().stream().map(controlT -> {
+                            if (controlT instanceof CheckBoxListT) {
+                                IFixCheckBoxListUiElement<Pane, EventHandler<ActionEvent>> element = factory.instantiateNewCheckBox();
+                                element.setCheckBoxListT((CheckBoxListT) controlT);
+                                return element.create();
+                            }
+                            return null;
+                        }).collect(Collectors.toList()));
 
             }
             titledPane.setContent(parent);
             return titledPane;
         }
+        return null;
+    }
+
+    private Node createControlByType(ControlT controlT) {
+
         return null;
     }
 

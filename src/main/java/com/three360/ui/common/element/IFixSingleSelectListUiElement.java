@@ -1,7 +1,15 @@
 package com.three360.ui.common.element;
 
-/**
- * Created by sainik on 3/24/17.
- */
-public interface IFixSingleSelectListUiElement {
+import com.three360.fixatdl.layout.SingleSelectListT;
+
+
+public interface IFixSingleSelectListUiElement<T, K> extends IFixUiElement<T, K> {
+
+    /****
+     *
+     * @param singleSelectListT
+     */
+    void setSingleSelectList(SingleSelectListT singleSelectListT);
+
+
 }

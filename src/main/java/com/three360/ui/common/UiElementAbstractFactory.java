@@ -7,7 +7,7 @@ public interface UiElementAbstractFactory {
 
     IFixButtonUiElement instantiateNewButton();
 
-    IFixCheckBoxListUiElement instantiateNewCheckBox();
+    <T, K> IFixCheckBoxListUiElement<T, K> instantiateNewCheckBox();
 
     <T, K> IFixDropDownListUiElement<T, K> instantiateNewDropDownList();
 
@@ -18,8 +18,6 @@ public interface UiElementAbstractFactory {
     IFixLabelUiElement instantiateNewLabel();
 
     IFixListBoxUiElement instantiateNewListBox();
-
-    IFixNullableSpinnerUiElement instantiateNewNullableSpinner();
 
     IFixPanelUiElement instantiateNewPanel();
 

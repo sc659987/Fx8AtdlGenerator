@@ -5,9 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
-/**
- * Created by sainik on 3/24/17.
- */
+
 public class FxFixButtonUiElement implements IFixButtonUiElement<Button, EventHandler<ActionEvent>> {
 
     @Override
@@ -24,4 +22,5 @@ public class FxFixButtonUiElement implements IFixButtonUiElement<Button, EventHa
     public void registerForEvent(EventHandler<ActionEvent> e) {
 
     }
+
 }

@@ -17,6 +17,8 @@ public abstract class AbstractFixAtdlUi<T> implements IFixAtdlUi<T> {
 
     protected StrategiesT strategiesT;
 
+    protected StrategyT selectedStrategyT;
+
 
     @Override
     public void parseFixAtdlFile(File file) {
@@ -46,12 +48,12 @@ public abstract class AbstractFixAtdlUi<T> implements IFixAtdlUi<T> {
 
     @Override
     public void setSelectedStrategy(StrategyT strategyT) {
-
+        this.selectedStrategyT = strategyT;
     }
 
     @Override
     public StrategyT getSelectedStrategy() {
-        return null;
+        return this.selectedStrategyT;
     }
 
 

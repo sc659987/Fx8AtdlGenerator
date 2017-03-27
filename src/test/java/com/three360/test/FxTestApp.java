@@ -1,25 +1,16 @@
 package com.three360.test;
 
-import com.three360.ui.common.IFixAtdlUi;
-import com.three360.ui.fx8.FxFixAtdlUi;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
-
-import java.io.File;
-import java.net.URL;
 
 
 // TODO log on debug mode
@@ -31,7 +22,7 @@ public class FxTestApp extends Application {
 
 
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(getTestBaseScene());
+        primaryStage.setScene(gridTest());
         primaryStage.setTitle("FX8 Atdl Generator Test Interface");
         primaryStage.show();
     }
@@ -41,6 +32,16 @@ public class FxTestApp extends Application {
         doubleSpinner.setValueFactory(new SpinnerValueFactory.ListSpinnerValueFactory<>(FXCollections.observableArrayList(0.0, 0.1)));
         hBox.getChildren().add(doubleSpinner);
         Scene scene = new Scene(hBox, 500, 500);
+        return scene;
+    }
+
+
+    private Scene gridTest() {
+        GridPane gridPane = new GridPane();
+        gridPane.setHgap(20);
+        gridPane.add(new Label("dddd"), 0, 0, GridPane.REMAINING, 1);
+        gridPane.add(new TextField("xxxx"), 0, 1, GridPane.REMAINING, 1);
+        Scene scene = new Scene(gridPane, 500, 500);
         return scene;
     }
 

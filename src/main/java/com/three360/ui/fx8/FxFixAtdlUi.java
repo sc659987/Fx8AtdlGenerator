@@ -6,10 +6,12 @@ import com.three360.fixatdl.layout.ListItemT;
 import com.three360.ui.abs.AbstractFixAtdlUi;
 import com.three360.ui.common.UiElementAbstractFactory;
 import com.three360.ui.common.element.IFixDropDownListUiElement;
+import com.three360.ui.common.element.IFixPanelUiElement;
 import com.three360.ui.fx8.component.DaggerMyComponent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -46,6 +48,13 @@ public class FxFixAtdlUi extends AbstractFixAtdlUi<Pane> {
         vBox.setAlignment(Pos.TOP_LEFT);
         if (getStrategies() != null) {
             vBox.getChildren().add(createStrategySelectionPanel());
+            if (getStrategies().getStrategy().size() > 0)
+                setSelectedStrategy(getStrategies().getStrategy().get(0));
+            if (getSelectedStrategy() != null) {
+                IFixPanelUiElement<Node, EventHandler<ActionEvent>> pane = factory.instantiateNewPanel();
+                pane.setStrategyPanelT(getSelectedStrategy().getStrategyLayout().getStrategyPanel().get(0));
+                vBox.getChildren().add(pane.create());
+            }
         }
         return vBox;
     }
@@ -60,7 +69,6 @@ public class FxFixAtdlUi extends AbstractFixAtdlUi<Pane> {
     public Pane createStrategySelectionPanel() {
         HBox strategySelectionBox = new HBox();
         strategySelectionBox.setAlignment(Pos.CENTER);
-
         if (getStrategies() != null) {
             IFixDropDownListUiElement<ComboBox<String>, EventHandler<ActionEvent>> element = this.factory.instantiateNewDropDownList();
             List<ListItemT> listItemTS = getStrategies().getStrategy().stream().map(StrategyT::getName).map(s -> {

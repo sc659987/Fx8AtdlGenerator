@@ -2,7 +2,12 @@ package com.three360.ui.fx8;
 
 import com.three360.ui.common.UiElementAbstractFactory;
 import com.three360.ui.common.element.*;
+import com.three360.ui.fx8.element.FxFixCheckBoxListUiElement;
 import com.three360.ui.fx8.element.FxFixDropDownListUiElement;
+import com.three360.ui.fx8.element.FxFixPanelUiElement;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.layout.Pane;
 
 public class FxUiElementFactory implements UiElementAbstractFactory {
 
@@ -12,8 +17,8 @@ public class FxUiElementFactory implements UiElementAbstractFactory {
     }
 
     @Override
-    public IFixCheckBoxListUiElement instantiateNewCheckBox() {
-        return null;
+    public IFixCheckBoxListUiElement<Pane, EventHandler<ActionEvent>> instantiateNewCheckBox() {
+        return new FxFixCheckBoxListUiElement();
     }
 
     @Override
@@ -42,13 +47,8 @@ public class FxUiElementFactory implements UiElementAbstractFactory {
     }
 
     @Override
-    public IFixNullableSpinnerUiElement instantiateNewNullableSpinner() {
-        return null;
-    }
-
-    @Override
     public IFixPanelUiElement instantiateNewPanel() {
-        return null;
+        return new FxFixPanelUiElement();
     }
 
     @Override
